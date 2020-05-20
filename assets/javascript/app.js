@@ -15,4 +15,31 @@ var firebaseConfig = {
   $("#add-train-btn").on("click", function(event){
     event.preventDefault();
     console.log(event);
-  })
+  
+
+  //pulls user inputs
+  var trainName = $("#train-name-input").val().trim();
+  var trainDest = $("#destination-input").val().trim();
+  var trainFirst = $("#first-input").val().trim();
+  var trainFreq = $("#frequency-input").val().trim();
+
+
+  
+  var newTrain = {
+    train: trainName,
+    destination: trainDest,
+    firstTrain: trainFirst,
+    frequency: trainFreq,
+  };
+
+
+database.ref().push(newTrain);
+
+console.log(newTrain.train);
+console.log(newTrain.destination);
+console.log(newTrain.firstTrain);
+console.log(newTrain.frequency);
+
+alert("New train added");
+
+});
