@@ -65,4 +65,15 @@ database.ref().on("child_added", function(childSnapshot) {
     console.log(trainFirst);
     console.log(trainFreq);
 
-})
+    //must add moment calculations
+
+    var newRow = $("#<tr>").append(
+        $("td>").text(trainName),
+        $("td>").text(trainDest),
+        $("td>").text(trainFreq),
+        // $("td>").text(trainArrive),
+        // $("td>").text(trainMin),  
+    );
+
+    $("#train-table > tbody").append(newRow);
+});
