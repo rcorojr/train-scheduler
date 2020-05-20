@@ -9,3 +9,10 @@ var firebaseConfig = {
   };
 
   firebase.initializeApp(firebaseConfig);
+
+  var database = firebase.database();
+
+  $("#add-train-btn").on("click", function(event){
+    event.preventDefault();
+    console.log(event);
+  })
