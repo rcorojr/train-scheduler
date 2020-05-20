@@ -1,0 +1,23 @@
+.jumbotron{
+    background-image: url("../images/Train_bg.png");
+    background-position: top, center;
+    background-size: 10%;
+    background-repeat: no-repeat;
+    background-color: #f7f7f7;
+}
+
+#less-font {
+    font-family: 'Dancing Script', cursive;
+}
+
+#great-font{
+    font-family: 'Playfair Display', serif;
+}
+
+body{
+    background-image: url("../images/USA_vintage_trains.jpg");
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-color: #fcebcf;
+}
