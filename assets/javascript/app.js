@@ -14,7 +14,6 @@ var firebaseConfig = {
 
   $("#add-train-btn").on("click", function(event){
     event.preventDefault();
-    console.log(event);
   
 
   //pulls user inputs
@@ -32,7 +31,7 @@ var firebaseConfig = {
     frequency: trainFreq,
   };
 
-
+//pushes to database (after updated rules in firebase)
 database.ref().push(newTrain);
 
 console.log(newTrain.train);
@@ -42,4 +41,28 @@ console.log(newTrain.frequency);
 
 alert("New train added");
 
+//clears fields
+$("#train-name-input").val("");
+$("#destination-input").val("");
+$("#first-input").val("");
+$("#frequency-input").val("");
+
+
+
+
 });
+
+database.ref().on("child_added", function(childSnapshot) {
+    console.log(childSnapshot.val());
+
+    var trainName = childSnapshot.val().train;
+    var trainDest = childSnapshot.val().destination;
+    var trainFirst = childSnapshot.val().firstTrain;
+    var trainFreq = childSnapshot.val().frequency;
+    
+    console.log(trainName);
+    console.log(trainDest);
+    console.log(trainFirst);
+    console.log(trainFreq);
+
+})
