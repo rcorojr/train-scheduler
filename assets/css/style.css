@@ -10,7 +10,11 @@
     font-family: 'Dancing Script', cursive;
 }
 
-#great-font{
+#great-font {
+    font-family: 'Playfair Display', serif;
+}
+
+#train-table {
     font-family: 'Playfair Display', serif;
 }
 

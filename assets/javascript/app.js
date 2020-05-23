@@ -1,3 +1,7 @@
+
+$(document).ready(function(){
+  
+
 var firebaseConfig = {
     apiKey: "AIzaSyBZfmZnbyx2oHce0WHTIorvU7SPvgY2H4k",
     authDomain: "timesheet-2f5be.firebaseapp.com",
@@ -67,13 +71,29 @@ database.ref().on("child_added", function(childSnapshot) {
 
     //must add moment calculations
 
-    var newRow = $("#<tr>").append(
-        $("td>").text(trainName),
-        $("td>").text(trainDest),
-        $("td>").text(trainFreq),
-        // $("td>").text(trainArrive),
-        // $("td>").text(trainMin),  
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+    var diffTime = currentTime.diff(moment(trainFirst), "minutes");
+    console.log("DIFFERENCE IN TIME: " + diffTime)
+
+    var tRemainder = diffTime % trainFreq;
+    console.log(tRemainder);
+
+    var trainArrive = trainFreq - tRemainder;
+    console.log("MINUTES TILL TRAIN: " + trainArrive);
+
+    var trainMin = moment().add(trainArrive, "minutes");
+    console.log("ARRIVAL TIME: " + moment(trainMin).format("hh:mm"));
+
+    var newRow = $("<tr>").append(
+        $("<td>").text(trainName),
+        $("<td>").text(trainDest),
+        $("<td>").text(trainFreq),
+        $("<td>").text(trainArrive),
+        $("<td>").text(trainMin),  
     );
 
     $("#train-table > tbody").append(newRow);
 });
+})
