@@ -72,9 +72,9 @@ database.ref().on("child_added", function(childSnapshot) {
     //must add moment calculations
 
     var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+    console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm"));
 
-    var diffTime = currentTime.diff(moment(trainFirst), "minutes");
+    var diffTime = currentTime.diff(moment(trainFirst, "HH:mm"), "minutes");
     console.log("DIFFERENCE IN TIME: " + diffTime)
 
     var tRemainder = diffTime % trainFreq;
@@ -84,7 +84,8 @@ database.ref().on("child_added", function(childSnapshot) {
     console.log("MINUTES TILL TRAIN: " + trainArrive);
 
     var trainMin = moment().add(trainArrive, "minutes");
-    console.log("ARRIVAL TIME: " + moment(trainMin).format("hh:mm"));
+    console.log("ARRIVAL TIME: " + moment(trainMin).format("HH:mm"));
+    
 
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),

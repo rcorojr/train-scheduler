@@ -18,6 +18,18 @@
     font-family: 'Playfair Display', serif;
 }
 
+.card-header {
+    font-family: 'Playfair Display', serif;
+}
+
+.form-group {
+    font-family: 'Playfair Display', serif;
+}
+
+#add-train-btn {
+    font-family: 'Playfair Display', serif;
+}
+
 body{
     background-image: url("../images/USA_vintage_trains.jpg");
     background-position: center;
